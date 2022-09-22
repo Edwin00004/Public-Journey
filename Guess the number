@@ -1,0 +1,36 @@
+# Guess The Number game #
+
+import random
+n = random.randint(1, 100)
+g = ""
+t = 0
+
+
+print(f"Welcome to the Guess The Number game edition {n}. "
+      "\nI have a number in my mind. "
+      "\nIt's an integer within 1-100. "
+      "\nYou can guess some numbers and I will tell you whether mine is larger or smaller. ")
+
+while g != n:
+      try:
+            if t >= 1:
+                  g = int(input("Try another guess: "))
+                  t += 1
+            elif t == 0:
+                  g = int(input("Please enter a number: "))
+                  t += 1
+            if g > 100:
+                  print("Please enter a number within 1-100.")
+            elif g > n:
+                  print("My number is smaller. ")
+            elif g < n:
+                  print("My number is larger." )
+      except ValueError:
+            print("Please enter an integer.")
+            t += 1
+
+if g == n and t == 1:
+      print("First try, baby!")
+
+elif g == n:
+      print(f"Congratulations! You have found out the number. You guessed {t} times. Great job!")
